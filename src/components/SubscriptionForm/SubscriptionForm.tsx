@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { FormData, FormErrors } from '../types';
+import { FormData, FormErrors } from "../../types";
 
 const FormSection = styled.section`
   display: flex;
