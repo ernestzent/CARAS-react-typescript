@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { FormData, FormErrors } from "../../types";
+import { validateSubscriptionForm } from '../../utils/validation';
 
 const FormSection = styled.section`
   display: flex;
@@ -99,7 +100,10 @@ const SubscriptionForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (validate()) {
+    const { isValid, errors: validationErrors } = validateSubscriptionForm(formData);
+    setErrors(validationErrors);
+
+    if (isValid) {
       setIsSuccess(true);
       setFormData({ name: '', email: '' });
       setTimeout(() => setIsSuccess(false), 5000);
