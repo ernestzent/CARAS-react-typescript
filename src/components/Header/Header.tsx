@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import logoCaras from '../../assets/img/Logo2.png'; 
+import logoCaras from '../../assets/img/Logo2.png';
 
 const HeaderContainer = styled.header`
   width: 100%;
-  background-color: #ED1E1E;
+  background-color: #C81010; /* Contraste 6.15:1 con texto blanco */
   padding: 2rem;
   text-align: center;
-  color: #FFF;
+  color: #FFFFFF;
 `;
 
 const Logo = styled.img`
@@ -21,19 +21,22 @@ const Title = styled.h1`
   margin-bottom: 1rem;
 `;
 
-const Subtitle = styled.h2`
+const Subtitle = styled.p`
   font-size: 1.2rem;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 800px;
   margin: 0 auto;
+  line-height: 1.5;
 `;
 
 const Header: React.FC = () => {
   return (
-    <HeaderContainer>
-      <Logo src={logoCaras} alt="Logo CARAS" />
+    <HeaderContainer role="banner">
+      <Logo src={logoCaras} alt="Logo CARAS - Revista de estilo de vida y sociedad" />
       <Title>La exclusividad llega directo a tu correo.</Title>
-      <Subtitle>Únete a nuestro newsletter y entérate antes que nadie sobre lo mejor del estilo de vida, moda y celebridades.</Subtitle>
+      <Subtitle>
+        Únete a nuestro <span lang="en">newsletter</span> y entérate antes que nadie sobre lo mejor del estilo de vida, moda y celebridades.
+      </Subtitle>
     </HeaderContainer>
   );
 };

@@ -1,6 +1,6 @@
-import { useState } from "react";
-import styled from "styled-components";
-import { FormData, FormErrors } from "../../types";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import { FormData, FormErrors } from '../../types';
 import { validateSubscriptionForm } from '../../utils/validation';
 
 const FormSection = styled.section`
@@ -10,12 +10,18 @@ const FormSection = styled.section`
 `;
 
 const Card = styled.div`
-  background: #fff;
+  background: #ffffff;
   padding: 40px;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
   width: 100%;
   max-width: 500px;
+`;
+
+const FormTitle = styled.h2`
+  text-align: center;
+  color: #C81010; /* Contraste 6.15:1 sobre blanco */
+  margin-top: 0;
 `;
 
 const FormGroup = styled.div`
@@ -26,19 +32,20 @@ const Label = styled.label`
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #555;
+  color: #333333; /* Contraste 12.6:1 sobre blanco */
 `;
 
 const Input = styled.input`
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #767676; /* Borde con contraste mínimo 3:1 para UI */
   border-radius: 4px;
   font-family: inherit;
+  font-size: 1rem;
 `;
 
 const ErrorMsg = styled.span`
-  color: #ED1E1E;
+  color: #C81010; /* Contraste 6.15:1 */
   font-size: 0.85rem;
   font-weight: bold;
   display: block;
@@ -47,22 +54,24 @@ const ErrorMsg = styled.span`
 
 const SubmitButton = styled.button`
   width: 100%;
-  background-color: #ED1E1E;
-  color: white;
+  background-color: #C81010;
+  color: #ffffff;
   padding: 15px;
   border: none;
+  border-radius: 4px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
   text-transform: uppercase;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #c81919;
+    background-color: #9E0B0B;
   }
 `;
 
 const SuccessMsg = styled.div`
-  color: #28a745;
+  color: #196F3D; /* Contraste 6.08:1 sobre blanco */
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
@@ -79,25 +88,6 @@ const SubscriptionForm: React.FC = () => {
     setErrors({ ...errors, [name]: '' });
   };
 
-  const validate = (): boolean => {
-    let isValid = true;
-    const newErrors: FormErrors = { name: '', email: '' };
-
-    if (!formData.name.trim()) {
-      newErrors.name = 'El nombre es obligatorio.';
-      isValid = false;
-    }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email.trim())) {
-      newErrors.email = 'Ingresa un correo válido.';
-      isValid = false;
-    }
-
-    setErrors(newErrors);
-    return isValid;
-  };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const { isValid, errors: validationErrors } = validateSubscriptionForm(formData);
@@ -111,10 +101,10 @@ const SubscriptionForm: React.FC = () => {
   };
 
   return (
-    <FormSection>
+    <FormSection aria-labelledby="form-heading">
       <Card>
-        <h2 style={{ textAlign: 'center', color: '#ED1E1E' }}>Suscríbete al boletín</h2>
-        <form onSubmit={handleSubmit}>
+        <FormTitle id="form-heading">Suscríbete al boletín</FormTitle>
+        <form onSubmit={handleSubmit} aria-label="Formulario de suscripción al boletín" noValidate>
           <FormGroup>
             <Label htmlFor="name">Nombre completo</Label>
             <Input
@@ -123,8 +113,15 @@ const SubscriptionForm: React.FC = () => {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              aria-required="true"
+              aria-invalid={!!errors.name}
+              aria-describedby={errors.name ? 'name-error' : undefined}
             />
-            {errors.name && <ErrorMsg>{errors.name}</ErrorMsg>}
+            {errors.name && (
+              <ErrorMsg id="name-error" role="alert">
+                {errors.name}
+              </ErrorMsg>
+            )}
           </FormGroup>
 
           <FormGroup>
@@ -135,12 +132,23 @@ const SubscriptionForm: React.FC = () => {
               name="email"
               value={formData.email}
               onChange={handleChange}
+              aria-required="true"
+              aria-invalid={!!errors.email}
+              aria-describedby={errors.email ? 'email-error' : undefined}
             />
-            {errors.email && <ErrorMsg>{errors.email}</ErrorMsg>}
+            {errors.email && (
+              <ErrorMsg id="email-error" role="alert">
+                {errors.email}
+              </ErrorMsg>
+            )}
           </FormGroup>
 
           <SubmitButton type="submit">Enviar</SubmitButton>
-          {isSuccess && <SuccessMsg>¡Suscripción exitosa!</SuccessMsg>}
+          {isSuccess && (
+            <SuccessMsg role="status" aria-live="polite">
+              ¡Suscripción exitosa!
+            </SuccessMsg>
+          )}
         </form>
       </Card>
     </FormSection>

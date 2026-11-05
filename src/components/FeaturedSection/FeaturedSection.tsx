@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Section = styled.section`
-  background: white;
+  background: #ffffff;
   padding: 60px 20px;
 `;
 
@@ -22,6 +22,10 @@ const TextContent = styled.div`
   flex: 1;
 `;
 
+const SectionTitle = styled.h2`
+  color: #C81010;
+`;
+
 const ImageContent = styled.div`
   flex: 1;
   img {
@@ -35,26 +39,32 @@ const Bullet = styled.li`
   list-style: none;
   &::before {
     content: "▪";
-    color: #ED1E1E;
+    color: #C81010;
     margin-right: 10px;
+    aria-hidden: true;
   }
 `;
 
 const FeaturedSection: React.FC = () => {
   return (
-    <Section>
+    <Section aria-labelledby="featured-heading">
       <Container>
         <TextContent>
-          <h2 style={{ color: '#ED1E1E' }}>Tu pase VIP al centro de la noticia.</h2>
+          <SectionTitle id="featured-heading">
+            Tu pase <span lang="en">VIP</span> al centro de la noticia.
+          </SectionTitle>
           <p>Sé parte de nuestro círculo exclusivo.</p>
-          <ul style={{ padding: 0 }}>
+          <ul style={{ padding: 0 }} aria-label="Beneficios de la suscripción">
             <Bullet><strong>Exclusividad:</strong> Noticias antes que nadie.</Bullet>
             <Bullet><strong>Inspiración:</strong> Tendencias en moda y belleza.</Bullet>
-            <Bullet><strong>Comunidad:</strong> Acceso a eventos VIP.</Bullet>
+            <Bullet><strong>Comunidad:</strong> Acceso a eventos <span lang="en">VIP</span>.</Bullet>
           </ul>
         </TextContent>
         <ImageContent>
-          <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80" alt="Evento exclusivo" />
+          <img
+            src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80"
+            alt="Evento exclusivo de gala y estilo de vida de Revista CARAS"
+          />
         </ImageContent>
       </Container>
     </Section>

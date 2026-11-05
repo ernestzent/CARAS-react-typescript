@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 
 describe('App Integration', () => {
-  it('should renders all main sections of the landing page', () => {
+  test('renders all main sections of the landing page', () => {
     render(<App />);
 
     expect(screen.getByAltText(/Logo CARAS/i)).toBeInTheDocument();
@@ -11,14 +11,16 @@ describe('App Integration', () => {
 
     expect(screen.getByText(/Suscríbete al boletín/i)).toBeInTheDocument();
 
-    expect(screen.getByText(/Tu pase VIP al centro de la noticia\./i)).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { name: /Tu pase VIP al centro de la noticia\./i })
+    ).toBeInTheDocument();
 
     expect(screen.getByText(/Lo que dicen nuestros suscriptores/i)).toBeInTheDocument();
 
     expect(screen.getByText(/EDITORIAL TELEVISA S\.A\. DE C\.V\./i)).toBeInTheDocument();
   });
 
-  it('should completes a full user subscription flow from the main App', () => {
+  test('completes a full user subscription flow from the main App', () => {
     render(<App />);
 
     const nameInput = screen.getByLabelText(/Nombre completo/i);

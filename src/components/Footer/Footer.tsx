@@ -5,8 +5,8 @@ import iconInstagram from '../../assets/img/instagram.png';
 import iconX from '../../assets/img/medios-de-comunicacion-social.png'; 
 
 const FooterContainer = styled.footer`
-  background: #ED1E1E;
-  color: white;
+  background: #C81010; /* Contraste 6.15:1 con texto blanco */
+  color: #FFFFFF;
   padding: 3rem 10% 1.5rem 10%;
   text-align: center;
 `;
@@ -17,7 +17,7 @@ const FooterTop = styled.div`
   align-items: center;
   gap: 2.5rem;
   
-  @media (min-width: 52em) { /* 832px - Breakpoint para tabletas/escritorio */
+  @media (min-width: 52em) {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
@@ -30,16 +30,24 @@ const FooterColumn = styled.div`
   flex-direction: column;
   gap: 15px;
 
-  h3 {
+  h2 {
     margin: 0;
     font-size: 1.2rem;
+    color: #FFFFFF;
   }
 
   p {
     margin: 0;
-    font-size: 0.9rem;
-    color: #ffd6d6;
+    font-size: 0.95rem;
+    color: #FFFFFF;
   }
+`;
+
+const ContactAddress = styled.address`
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const NavMenu = styled.ul`
@@ -52,14 +60,14 @@ const NavMenu = styled.ul`
 `;
 
 const NavLink = styled.a`
-  color: #ffd6d6;
-  text-decoration: none;
-  font-size: 0.9rem;
+  color: #FFFFFF;
+  text-decoration: underline;
+  font-size: 0.95rem;
   font-weight: 600;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
 
   &:hover {
-    color: #FFF;
+    opacity: 0.85;
   }
 `;
 
@@ -83,7 +91,7 @@ const SocialAnchor = styled.a`
 `;
 
 const SocialIconImg = styled.img`
-  width: 3rem; /* Ajustado para que no se vean gigantes */
+  width: 3rem;
   height: 3rem;
   object-fit: contain;
 `;
@@ -91,59 +99,82 @@ const SocialIconImg = styled.img`
 const Divider = styled.hr`
   width: 100%;
   border: none;
-  border-top: 1px solid #FFF;
+  border-top: 1px solid #FFFFFF;
   margin: 2.5rem 0 1.5rem 0;
   opacity: 0.4;
 `;
 
 const FooterBottom = styled.div`
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   letter-spacing: 1px;
-  color: #FFF;
+  color: #FFFFFF;
 `;
 
 const Footer: React.FC = () => {
   return (
-    <FooterContainer>
+    <FooterContainer role="contentinfo">
       <FooterTop>
         <FooterColumn>
-          <h3>Contacto</h3>
-          <p>Email: contacto@caras.com.mx</p>
-          <p>Teléfono: +52 (55) 1234 5678</p>
-          <p>Av. Vasco de Quiroga 2000, CDMX</p>
+          <h2>Contacto</h2>
+          <ContactAddress>
+            <p>Email: contacto@caras.com.mx</p>
+            <p>Teléfono: +52 (55) 1234 5678</p>
+            <p>Av. Vasco de Quiroga 2000, CDMX</p>
+          </ContactAddress>
         </FooterColumn>
 
         <FooterColumn>
-          <h3>Legales</h3>
-          <NavMenu>
-            <li><NavLink href="#">Aviso de privacidad</NavLink></li>
-            <li><NavLink href="#">Términos de servicio</NavLink></li>
-          </NavMenu>
+          <h2>Legales</h2>
+          <nav aria-label="Enlaces legales">
+            <NavMenu>
+              <li><NavLink href="#privacidad">Aviso de privacidad</NavLink></li>
+              <li><NavLink href="#terminos">Términos de servicio</NavLink></li>
+            </NavMenu>
+          </nav>
         </FooterColumn>
 
         <FooterColumn>
-          <h3>Síguenos</h3>
-          <SocialLinks>
-
-            <SocialAnchor href="https://www.facebook.com/Revista.Caras" target="_blank" rel="noopener noreferrer">
-              <SocialIconImg src={iconFacebook} alt="Facebook CARAS" />
-            </SocialAnchor>
-            
-            <SocialAnchor href="https://x.com/carasmexico" target="_blank" rel="noopener noreferrer">
-              <SocialIconImg src={iconX} alt="X CARAS" />
-            </SocialAnchor>
-            
-            <SocialAnchor href="https://www.instagram.com/carasmexico/" target="_blank" rel="noopener noreferrer">
-              <SocialIconImg src={iconInstagram} alt="Instagram CARAS" />
-            </SocialAnchor>
-          </SocialLinks>
+          <h2>Síguenos</h2>
+          <nav aria-label="Redes sociales de CARAS">
+            <SocialLinks>
+              <SocialAnchor
+                href="https://www.facebook.com/Revista.Caras"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visitar Facebook de Revista CARAS (se abre en una nueva pestaña)"
+              >
+                <SocialIconImg src={iconFacebook} alt="Facebook CARAS" />
+              </SocialAnchor>
+              
+              <SocialAnchor
+                href="https://x.com/carasmexico"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visitar perfil de X de Revista CARAS (se abre en una nueva pestaña)"
+              >
+                <SocialIconImg src={iconX} alt="X CARAS" />
+              </SocialAnchor>
+              
+              <SocialAnchor
+                href="https://www.instagram.com/carasmexico/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visitar Instagram de Revista CARAS (se abre en una nueva pestaña)"
+              >
+                <SocialIconImg src={iconInstagram} alt="Instagram CARAS" />
+              </SocialAnchor>
+            </SocialLinks>
+          </nav>
         </FooterColumn>
       </FooterTop>
 
-      <Divider />
+      <Divider aria-hidden="true" />
 
       <FooterBottom>
-        <p>EDITORIAL TELEVISA S.A. DE C.V. TODOS LOS DERECHOS RESERVADOS. TBG - EDITORIAL TELEVISA - ENTERTAINMENT - NEWS</p>
+        <p>
+          EDITORIAL TELEVISA S.A. DE C.V. TODOS LOS DERECHOS RESERVADOS.{' '}
+          <span lang="en">TBG - EDITORIAL TELEVISA - ENTERTAINMENT - NEWS</span>
+        </p>
       </FooterBottom>
     </FooterContainer>
   );
