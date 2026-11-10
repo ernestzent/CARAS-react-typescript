@@ -5,7 +5,7 @@ import iconInstagram from '../../assets/img/instagram.png';
 import iconX from '../../assets/img/medios-de-comunicacion-social.png'; 
 
 const FooterContainer = styled.footer`
-  background: #C81010; /* Contraste 6.15:1 con texto blanco */
+  background-color: #C81010;
   color: #FFFFFF;
   padding: 3rem 10% 1.5rem 10%;
   text-align: center;

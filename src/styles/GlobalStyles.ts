@@ -10,7 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    color: #222222; /* Ratio > 12:1 sobre #f4f4f4 */
+    color: #222222;
   }
 
   h1, h2, h3, h4 {

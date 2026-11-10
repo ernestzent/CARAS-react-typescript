@@ -9,7 +9,7 @@ const Section = styled.section`
 `;
 
 const SectionTitle = styled.h2`
-  color: #C81010;
+  color: #C81010; /* Contraste calculado: 5.86:1 sobre #FFFFFF (Cumple WCAG AA) */
 `;
 
 const Grid = styled.div`
@@ -44,11 +44,11 @@ const Avatar = styled.img`
 const AuthorName = styled.h3`
   margin: 10px 0 5px;
   font-size: 1.15rem;
-  color: #222222;
+  color: #222222; /* Contraste calculado: 15.91:1 sobre #FFFFFF (Cumple WCAG AAA) */
 `;
 
 const LocationText = styled.small`
-  color: #555555; /* Contraste 7.4:1 sobre blanco */
+  color: #555555; /* Contraste calculado: 7.46:1 sobre #FFFFFF (Cumple WCAG AAA) */
   font-size: 0.9rem;
 `;
 
@@ -68,7 +68,14 @@ const Testimonials: React.FC = () => {
       <Grid>
         {mockTestimonials.map((t) => (
           <Card key={t.id} aria-label={`Testimonio de ${t.name}`}>
-            <Avatar src={t.avatar} alt={`Avatar de ${t.name}, suscriptor en ${t.location}`} />
+            <Avatar
+              src={t.avatar}
+              alt={`Avatar de ${t.name}, suscriptor en ${t.location}`}
+              width="80"
+              height="80"
+              loading="lazy"
+              decoding="async"
+            />
             <p><em>"{t.quote}"</em></p>
             <AuthorName>{t.name}</AuthorName>
             <LocationText>{t.location}</LocationText>

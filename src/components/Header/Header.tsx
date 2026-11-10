@@ -4,7 +4,7 @@ import logoCaras from '../../assets/img/Logo2.png';
 
 const HeaderContainer = styled.header`
   width: 100%;
-  background-color: #C81010; /* Contraste 6.15:1 con texto blanco */
+  background-color: #C81010;
   padding: 2rem;
   text-align: center;
   color: #FFFFFF;
@@ -13,6 +13,7 @@ const HeaderContainer = styled.header`
 const Logo = styled.img`
   width: 100%;
   max-width: 300px;
+  height: auto;
   margin-bottom: 2rem;
 `;
 
@@ -32,10 +33,16 @@ const Subtitle = styled.p`
 const Header: React.FC = () => {
   return (
     <HeaderContainer role="banner">
-      <Logo src={logoCaras} alt="Logo CARAS - Revista de estilo de vida y sociedad" />
+      <Logo
+        src={logoCaras}
+        alt="Logo CARAS - Revista de estilo de vida y sociedad"
+        width="300"
+        height="90"
+        decoding="async"
+      />
       <Title>La exclusividad llega directo a tu correo.</Title>
       <Subtitle>
-        Únete a nuestro <span lang="en">newsletter</span> y entérate antes que nadie sobre lo mejor del estilo de vida, moda y celebridades.
+        Únete gratis a nuestro <span lang="en">newsletter</span> y recibe antes que nadie las primicias sobre estilo de vida, alta moda y celebridades.
       </Subtitle>
     </HeaderContainer>
   );

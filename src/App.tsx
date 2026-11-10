@@ -1,5 +1,5 @@
 import React from 'react';
-import { GlobalStyles } from './styles/GlobalStyles'; // <-- Con llaves { }
+import { GlobalStyles } from './styles/GlobalStyles';
 import Header from './components/Header/Header';
 import SubscriptionForm from './components/SubscriptionForm/SubscriptionForm';
 import FeaturedSection from './components/FeaturedSection/FeaturedSection';

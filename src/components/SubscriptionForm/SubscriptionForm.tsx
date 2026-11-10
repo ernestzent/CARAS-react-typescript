@@ -20,7 +20,7 @@ const Card = styled.div`
 
 const FormTitle = styled.h2`
   text-align: center;
-  color: #C81010; /* Contraste 6.15:1 sobre blanco */
+  color: #C81010;
   margin-top: 0;
 `;
 
@@ -32,20 +32,20 @@ const Label = styled.label`
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
-  color: #333333; /* Contraste 12.6:1 sobre blanco */
+  color: #333333;
 `;
 
 const Input = styled.input`
   width: 100%;
   padding: 10px;
-  border: 1px solid #767676; /* Borde con contraste mínimo 3:1 para UI */
+  border: 1px solid #767676;
   border-radius: 4px;
   font-family: inherit;
   font-size: 1rem;
 `;
 
 const ErrorMsg = styled.span`
-  color: #C81010; /* Contraste 6.15:1 */
+  color: #C81010;
   font-size: 0.85rem;
   font-weight: bold;
   display: block;
@@ -71,10 +71,18 @@ const SubmitButton = styled.button`
 `;
 
 const SuccessMsg = styled.div`
-  color: #196F3D; /* Contraste 6.08:1 sobre blanco */
+  color: #196F3D;
   font-weight: bold;
   text-align: center;
   margin-top: 20px;
+`;
+
+const TrustMicrocopy = styled.p`
+  font-size: 0.8rem;
+  color: #555555;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 0;
 `;
 
 const SubscriptionForm: React.FC = () => {
@@ -143,7 +151,8 @@ const SubscriptionForm: React.FC = () => {
             )}
           </FormGroup>
 
-          <SubmitButton type="submit">Enviar</SubmitButton>
+          <SubmitButton type="submit">Enviar y obtener acceso VIP gratis</SubmitButton>
+          <TrustMicrocopy>🔒 100% libre de spam. Cancela tu suscripción en cualquier momento.</TrustMicrocopy>
           {isSuccess && (
             <SuccessMsg role="status" aria-live="polite">
               ¡Suscripción exitosa!
