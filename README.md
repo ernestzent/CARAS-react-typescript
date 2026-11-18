@@ -6,7 +6,7 @@
 ![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
 ![PageSpeed](https://img.shields.io/badge/PageSpeed_Insights-100%2F100-brightgreen?style=for-the-badge)
 
-¡Hola! 👋 Este proyecto consiste en el desarrollo y optimización de una landing page responsiva y una suite de componentes para la suscripción al newsletter de **Revista CARAS**. Fue diseñado con un enfoque estricto en rendimiento web, logrando una calificación de **100/100 en Google PageSpeed Insights**, y se complementa con una plantilla de correo HTML compatible con los principales clientes de email.
+¡Hola! 👋 Este proyecto consiste en el desarrollo y optimización de una landing page responsiva y una suite de componentes para la suscripción al newsletter de **Revista CARAS**. Fue diseñado con un enfoque estricto en rendimiento web, logrando una calificación de **100/100 en Google PageSpeed Insights**.
 
 🔗 **Demo en vivo:** [Ver proyecto desplegado](https://caras-landing-page.netlify.app/)
 
@@ -21,29 +21,41 @@
 * **React & TypeScript:** Construcción de la interfaz modular y tipado estático.
 * **Styled-Components:** Estilizado encapsulado por componente.
 * **Jest & React Testing Library:** Pruebas unitarias, de renderizado y reportes de cobertura.
-* **HTML5 (Tablas) & CSS Inline:** Maquetación de la plantilla de correo electrónico.
+* **HTML5:** Para la estructura y semántica del contenido.
 * **WebP & SEO Técnico:** Compresión de activos y optimización para buscadores.
 
 ## 📂 Estructura del Proyecto
 
 ```text
-├── email-template/
-│   └── newsletter.html         # Plantilla HTML con CSS en línea para correo
-├── public/                     # Activos estáticos y metadatos SEO
+CARAS-react-typescript/
+├── public/
+│   ├── index.html              # Documento HTML base y metadatos SEO
+│   ├── manifest.json           # Configuración de manifiesto web
+│   └── robots.txt              # Directivas de rastreo para motores de búsqueda
 ├── src/
-│   ├── components/             # Componentes con sus archivos de estilos separados
-│   ├── __tests__/              # Pruebas unitarias con Jest y RTL
-│   ├── App.tsx                 # Componente principal
-│   └── index.tsx               # Punto de entrada
-└── package.json
+│   ├── __tests__/              # Suites de pruebas unitarias (Jest + RTL)
+│   ├── assets/
+│   │   └── img/                # Imágenes
+│   ├── components/             # Componentes reutilizables de la interfaz
+│   ├── styles/                 # Estilos globales y configuración de Styled-Components
+│   ├── types/                  # Interfaces y tipos de TypeScript
+│   ├── utils/                  # Funciones auxiliares y validaciones
+│   ├── App.tsx                 # Componente raíz de la aplicación
+│   ├── index.tsx               # Punto de entrada de React
+│   └── setupTests.ts           # Configuración del entorno de pruebas
+├── .gitignore
+├── README.md
+├── package-lock.json
+├── package.json
+└── tsconfig.json               # Configuración del compilador de TypeScript
 ```
 
 ## 🚀 Instalación y Uso
 
 1. **Clona el repositorio:**
    ```bash
-   git clone [https://github.com/ernestzent/revista-caras-landing.git](https://github.com/ernestzent/revista-caras-landing.git)
-   cd revista-caras-landing
+   git clone https://github.com/ernestzent/CARAS-react-typescript.git
+   cd CARAS-react-typescript
    ```
 
 2. **Instala las dependencias:**
@@ -57,23 +69,26 @@
    ```
    Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-4. **Ejecuta las pruebas unitarias y el reporte de cobertura:**
+4. **Ejecuta las pruebas unitarias y genera el reporte de cobertura:**
    ```bash
    npm test -- --coverage
    ```
 
-5. **Genera el build de producción:**
+5. **Genera el build optimizado para producción:**
    ```bash
    npm run build
    ```
-
+   
 ## 💡 Ejemplos de Uso
 
-* **Suscripción al Newsletter:** Ingresa un correo electrónico en el formulario principal para probar la validación de formato en tiempo real y el estado de confirmación.
-* **Previsualización del Email:** Abre directamente el archivo `email-template/newsletter.html` en tu navegador o copia su código en herramientas como Litmus o PutsMail para verificar el renderizado en clientes de correo.
+* **Formulario de Suscripción:** Ingresa un correo electrónico en el formulario de la landing page para probar la validación en tiempo real (gestionada en `src/utils/`) y los mensajes de retroalimentación al usuario.
+* **Verificación de Cobertura de Pruebas:** Al ejecutar `npm test -- --coverage`, podrás inspeccionar en consola el porcentaje de cobertura de líneas, funciones y ramas de los archivos ubicados en `src/__tests__/`.
 
-## 📸 Capturas de Pantalla
+## 🤝 Contribuciones
 
-| Vista Desktop | Auditoría PageSpeed (100/100) | Plantilla de Correo |
-| :---: | :---: | :---: |
-| ![Vista Desktop](./screenshots/caras-desktop.png) | ![PageSpeed 100](./screenshots/caras-pagespeed.png) | ![Email Template](./screenshots/caras-email.png) |
+Las contribuciones, reportes de errores y sugerencias de mejora son siempre bienvenidas:
+1. Haz un *Fork* del repositorio.
+2. Crea una rama para tu mejora (`git checkout -b feature/mejora-seo`).
+3. Haz *Commit* de tus cambios (`git commit -m 'Agrega mejora en metadatos'`).
+4. Sube tu rama (`git push origin feature/mejora-seo`).
+5. Abre un *Pull Request* asegurándote de que todas las pruebas en `src/__tests__/` pasen correctamente.
