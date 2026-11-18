@@ -21,7 +21,6 @@
 * **React & TypeScript:** Construcción de la interfaz modular y tipado estático.
 * **Styled-Components:** Estilizado encapsulado por componente.
 * **Jest & React Testing Library:** Pruebas unitarias, de renderizado y reportes de cobertura.
-* **HTML5:** Para la estructura y semántica del contenido.
 * **WebP & SEO Técnico:** Compresión de activos y optimización para buscadores.
 
 ## 📂 Estructura del Proyecto
