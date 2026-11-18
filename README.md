@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Revista CARAS - Newsletter & Landing Page 📰
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![PageSpeed](https://img.shields.io/badge/PageSpeed_Insights-100%2F100-brightgreen?style=for-the-badge)
 
-## Available Scripts
+¡Hola! 👋 Este proyecto consiste en el desarrollo y optimización de una landing page responsiva y una suite de componentes para la suscripción al newsletter de **Revista CARAS**. Fue diseñado con un enfoque estricto en rendimiento web, logrando una calificación de **100/100 en Google PageSpeed Insights**, y se complementa con una plantilla de correo HTML compatible con los principales clientes de email.
 
-In the project directory, you can run:
+🔗 **Demo en vivo:** [Ver proyecto desplegado](https://caras-landing-page.netlify.app/)
 
-### `npm start`
+## ✨ Características Principales
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* **Rendimiento y SEO Técnico (100/100):** Optimización de imágenes a formato WebP, carga diferida (*lazy loading*), minificación de recursos y metadatos estructurados para mejorar los Core Web Vitals.
+* **Arquitectura de Componentes Tipada:** Interfaz modular construida con React y TypeScript, manteniendo los estilos desacoplados en archivos dedicados por componente.
+* **Pruebas Unitarias con Cobertura:** Validación del comportamiento de componentes y formularios mediante Jest y React Testing Library con reporte de cobertura (*code coverage*).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tecnologías Utilizadas
 
-### `npm test`
+* **React & TypeScript:** Construcción de la interfaz modular y tipado estático.
+* **Styled-Components:** Estilizado encapsulado por componente.
+* **Jest & React Testing Library:** Pruebas unitarias, de renderizado y reportes de cobertura.
+* **HTML5 (Tablas) & CSS Inline:** Maquetación de la plantilla de correo electrónico.
+* **WebP & SEO Técnico:** Compresión de activos y optimización para buscadores.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📂 Estructura del Proyecto
 
-### `npm run build`
+```text
+├── email-template/
+│   └── newsletter.html         # Plantilla HTML con CSS en línea para correo
+├── public/                     # Activos estáticos y metadatos SEO
+├── src/
+│   ├── components/             # Componentes con sus archivos de estilos separados
+│   ├── __tests__/              # Pruebas unitarias con Jest y RTL
+│   ├── App.tsx                 # Componente principal
+│   └── index.tsx               # Punto de entrada
+└── package.json
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Instalación y Uso
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. **Clona el repositorio:**
+   ```bash
+   git clone [https://github.com/ernestzent/revista-caras-landing.git](https://github.com/ernestzent/revista-caras-landing.git)
+   cd revista-caras-landing
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. **Instala las dependencias:**
+   ```bash
+   npm install
+   ```
 
-### `npm run eject`
+3. **Inicia el servidor de desarrollo:**
+   ```bash
+   npm start
+   ```
+   Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. **Ejecuta las pruebas unitarias y el reporte de cobertura:**
+   ```bash
+   npm test -- --coverage
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. **Genera el build de producción:**
+   ```bash
+   npm run build
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 💡 Ejemplos de Uso
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* **Suscripción al Newsletter:** Ingresa un correo electrónico en el formulario principal para probar la validación de formato en tiempo real y el estado de confirmación.
+* **Previsualización del Email:** Abre directamente el archivo `email-template/newsletter.html` en tu navegador o copia su código en herramientas como Litmus o PutsMail para verificar el renderizado en clientes de correo.
 
-## Learn More
+## 📸 Capturas de Pantalla
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| Vista Desktop | Auditoría PageSpeed (100/100) | Plantilla de Correo |
+| :---: | :---: | :---: |
+| ![Vista Desktop](./screenshots/caras-desktop.png) | ![PageSpeed 100](./screenshots/caras-pagespeed.png) | ![Email Template](./screenshots/caras-email.png) |
